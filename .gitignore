@@ -1,0 +1,3 @@
+staticfiles/
+kuop/__pycache__/
+db.sqlite3

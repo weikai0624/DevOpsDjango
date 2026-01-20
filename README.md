@@ -9,6 +9,10 @@
     ```
     docker run -p 8080:8000 kuop-django:local
     ```
+    or set DEBUG 
+    ```
+    docker run -p 8080:8000 -e DJANGO_DEBUG=True kuop-django:local
+    ```
 
 3. create super user
     ```
@@ -17,4 +21,4 @@
     Enter user info
 
 4. login administration
-    http://127.0.0.1:8000/admin/
+    http://127.0.0.1:8080/admin/
