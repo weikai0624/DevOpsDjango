@@ -22,3 +22,66 @@
 
 4. login administration
     http://127.0.0.1:8080/admin/
+
+
+## Kubernetes
+
+1. check docker images built and stop docker stop
+    ```
+    docker iamges
+    docker stop {container_id}
+    ```
+
+2. create pod (like container)
+    ```
+    kubectl run kuop-django-pod --image kuop-django:local --port=8000
+    ```
+
+    *   get pods
+        ```
+        kubectl get pods 
+
+        ```
+
+    *   delete pod
+        ```
+        kubectl delete pod kuop-django-pod
+        ```
+
+3. test pod
+    ```
+    kubectl port-forward pod/kuop-django-pod 8002:8000
+    ```
+    ex: http://127.0.0.1:8002/admin/
+
+4. expose
+    expose NodePort (just expose by K8s Pod)
+    ```
+    kubectl expose pod kuop-django-pod --type=NodePort --port=8000 --name=kuop-service
+    ```
+    get NodePort random port 
+    ```
+    kubectl get svc kuop-service
+    ```
+    ex: http://127.0.0.1:32514/admin/
+
+
+    *   expose ClusterIP in Kubernetes internal (expose by ClusterIP only can use in Cluster) 
+        ```
+        kubectl expose pod kuop-django-pod --type=ClusterIP --port=8000 --name=kuop-service-cluster
+        ```
+
+    *   get svc 
+        ```
+        kubectl get svc
+        ```
+    *   delete expose
+        ```
+        kubectl delete service kuop-service
+        ```
+
+4.  get svc to login administration
+    ```
+    kubectl get svc
+    ```
+    http://127.0.0.1:32514/admin/
