@@ -22,6 +22,7 @@
 
 4. login administration
     http://127.0.0.1:8080/admin/
+    http://127.0.0.1:8080/swagger/
 
 
 ## Kubernetes
