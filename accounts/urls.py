@@ -4,6 +4,8 @@ from django.urls import (
 )
 from .user.user_viewsets import UserViewSets
 from .user.change_password import ChangePasswordView
+from .user.logout import LogoutView
+from .user.login import LoginView
 
 urlpatterns = [
     path('user/', UserViewSets.as_view({
@@ -15,5 +17,7 @@ urlpatterns = [
             "delete": "destroy",
         }
     )),
-    path('user/<int:pk>/change_password/', ChangePasswordView.as_view())
+    path('user/<int:pk>/change_password/', ChangePasswordView.as_view()),
+    path('login/', LoginView.as_view()),
+    path('logout/', LogoutView.as_view()),
 ]
