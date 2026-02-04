@@ -86,3 +86,11 @@
     kubectl get svc
     ```
     http://127.0.0.1:32514/admin/
+
+## Depoly
+
+    1. Set System Environment
+        DJANGO_SECRET_KEY
+        DJANGO_DEBUG
+        DJANGO_ALLOWED_HOSTS
+        DJANGO_CSRF_TRUSTED_ORIGINS
